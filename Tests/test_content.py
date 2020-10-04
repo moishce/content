@@ -742,12 +742,14 @@ def get_server_numeric_version(ami_env, is_local_run=False):
         env_results = json.load(json_file)
 
     instances_ami_names = set([env.get('AmiName') for env in env_results if ami_env in env.get('Role', '')])
+    print(instances_ami_names)
     if len(instances_ami_names) != 1:
         print_warning(f'Did not get one AMI Name, got {instances_ami_names}.'
                       f' Assuming server version is {default_version}')
         return default_version
 
     instances_ami_name = list(instances_ami_names)[0]
+    print(instances_ami_name)
     extracted_version = re.findall(r'Demisto-(?:Circle-CI|MarketPlace)-Content-[\w-]+-([\d.]+)-[\d]{5}',
                                    instances_ami_name)
     if extracted_version:
