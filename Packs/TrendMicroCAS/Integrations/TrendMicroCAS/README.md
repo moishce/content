@@ -25,7 +25,6 @@ After you successfully execute a command, a DBot message appears in the War Room
 ***
 Retrieves security event logs of services.
 
-
 #### Base Command
 
 `trendmicro-cas-security-events-list`
